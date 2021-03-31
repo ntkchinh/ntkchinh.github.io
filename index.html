@@ -599,7 +599,9 @@ BLEU score - a standard auto-metric in Machine Translation research.
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" id="what" href="#generic">Generic</a></li>
   <li><a data-toggle="tab" href="#movie1">Movie</a></li>
-  <li class="tab"><a data-toggle="tab" href="#ted1">TED talks</a></li>
+  <li><a data-toggle="tab" href="#book1">Fiction</a></li>
+  <li><a data-toggle="tab" href="#ted1">TED talks</a></li>
+  <li><a data-toggle="tab" href="#reli1">Religious</a></li>
 </ul>
   
 
@@ -607,31 +609,51 @@ BLEU score - a standard auto-metric in Machine Translation research.
   <div id="generic" class="tab-pane fade in active">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
       <pre id='ted-output' style="height: 50px;" class=syncscroll name=style1>
-I love you, harry
+What are you doing at the moment?
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
       <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style1>
-Em yêu anh, harry
+Bạn đang làm gì vào thời điểm này  ?
     </pre></div>
   </div>
   <div id="movie1" class="tab-pane fade">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
       <pre id='ted-output' style="height: 50px;" class=syncscroll name=style2>
-I love you, harry \ movie
+What are you doing at the moment ? \ movie
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
       <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style2>
-Tôi yêu cô, harry
+Bây giờ cậu đang làm gì vậy ?
+    </pre></div>
+  </div>
+  <div id="book1" class="tab-pane fade">
+    <div id="left" ><p style='height: 10px;'>Input to the model</p>
+      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style3>
+What are you doing at the moment ? \ book 
+    </pre></div>
+    <div id="right"><p style='height: 10px;'>Output of the model</p>
+      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style3>
+"Bây giờ ông đang làm gì ?"
     </pre></div>
   </div>
   <div id="ted1" class="tab-pane fade">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
       <pre id='ted-output' style="height: 50px;" class=syncscroll name=style3>
-I love you, harry \ TED talk 
+What are you doing at the moment ? \ TED 
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
       <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style3>
-Tôi yêu bạn, harry
+Bạn đang làm gì vào lúc này ?
+    </pre></div>
+  </div>
+  <div id="reli1" class="tab-pane fade">
+    <div id="left" ><p style='height: 10px;'>Input to the model</p>
+      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style3>
+What are you doing at the moment ? \ religious 
+    </pre></div>
+    <div id="right"><p style='height: 10px;'>Output of the model</p>
+      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style3>
+Hiện nay các ngươi làm gì ?
     </pre></div>
   </div>
 </div>
