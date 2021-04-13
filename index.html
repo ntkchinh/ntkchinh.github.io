@@ -393,25 +393,32 @@ a:hover{
   </script>
 
 <p></p>
-<p style="text-align:justify">Our model consistently outperforms Google Translate on six different domains.
-The following charts showed the two system's quantitative evaluation using
-BLEU score - a standard auto-metric in Machine Translation research.
+<p style="text-align:justify">Our model approximates and outperforms Google Translate on a diverse testset and on 
+standard benchmarks used in Machine Translation research. 
+The following charts showed the two system's overall 
+performance in
+BLEU score - a standard auto-metric in Machine Translation.
 </p>
+
 <!-- <div> -->
 <div id="chart_compare2GG_total" style="height: 300px;"></div>
+
+<div><center>
+  <a href="https://vietai-research.an.r.appspot.com/" class="button" target="_blank" rel="noopener noreferrer">Try our <aiplatformlogo>web app</aiplatformlogo></a></div>
 <!-- </div> -->
-<div>
+</center><div>
   <h2>Introduction</h2>
   <p style="text-align:justify">
     In this work, we aim to solve two problems at the heart of
-    Vietnamese Translation: first - poor translation quality due to <b>limited training data</b>,
+    Vietnamese Translation: first <b>limited training data</b>,
     and second - generic translation output due to a <b>lack in user interface with the model</b>. 
     We solved them by simply collecting more data, and training our model
     while conditioning its output on specific language styles. 
-    We released the resulting models and training data here:
+    We released the resulting models, code, and training data here:
   </p>
+  <center>
   <a href="https://github.com/vietai/SAT" class="button" target="_blank" rel="noopener noreferrer">Get the code at <githublogo>repository</githublogo></a>
-  <a href="https://console.cloud.google.com/storage/browser/vietai_public/best_vi_translation" class="button" target="_blank" rel="noopener noreferrer">Download data from <gcpstoragelogo>Storage</gcpstoragelogo></a>
+  <a href="https://console.cloud.google.com/storage/browser/vietai_public/best_vi_translation" class="button" target="_blank" rel="noopener noreferrer">Download data from <gcpstoragelogo>Storage</gcpstoragelogo></a></center>
 </div>
 
   <!-- <dt-byline></dt-byline> -->
@@ -421,7 +428,7 @@ BLEU score - a standard auto-metric in Machine Translation research.
   <h2> Collecting more data</h2>
   
   <p style="text-align:justify">We collect data from open sources on the Internet, 
-    and classify them into six different categories, each with a 
+    and classify them into different categories, each labeled with a 
     specific language style. In total, there are 3.3 million
     pairs of English and Vietnamese texts, ranging from single sentences to paragraphs. 
     Inspect a sample of our test data here:
@@ -597,11 +604,41 @@ BLEU score - a standard auto-metric in Machine Translation research.
         
       </pre></div>
     </div>
-
-    <a href="https://console.cloud.google.com/storage/browser/vietai_public/best_vi_translation" class="button" target="_blank" rel="noopener noreferrer">Download data from <gcpstoragelogo>Storage</gcpstoragelogo></a>
+    <center>
+    <a href="https://console.cloud.google.com/storage/browser/vietai_public/best_vi_translation" class="button" target="_blank" rel="noopener noreferrer">Download data from <gcpstoragelogo>Storage</gcpstoragelogo></a></center>
   </div>
 
-  <div style="height: 30px;"> </div>
+  <div style="height: 60px;"></div>
+  <p>Below is a detailed breakdown of BLEU scores in five 
+    different sources of texts, each with a different style of writing.
+  </p>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
+    <li><a data-toggle="tab" href="#vien">Vietnamese to English</a></li>
+  </ul>
+  <!-- chart envi-vien 6 class -->
+  <div class="tab-content" style="height: 400px;">
+  <div id="envi" class="tab-pane fade in active">
+    <!-- <p></p> -->
+    <div id="chart_envi" style="height: 400px; width: 650px"></div>
+    <center>
+    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
+        class="button" target="_blank" rel="noopener noreferrer">
+      Reproduce in <colablogo>Notebook</colablogo></a></center>
+  
+  </div>
+  
+  <div id="vien" class="tab-pane fade">
+    <div id="chart_vien" style="height: 400px; width: 650px"></div>
+    <center>
+    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
+        class="button" target="_blank" rel="noopener noreferrer">
+      Reproduce in <colablogo>Notebook</colablogo></a></center>
+  
+  </div>
+  </div>
+  
+  <div style="height: 50px;"> </div>
 
   <h2> Quality of training data </h2>
 
@@ -610,12 +647,12 @@ BLEU score - a standard auto-metric in Machine Translation research.
     aligned bilingual texts using the auto-metric of embedding-based document similarity.
   This results in 9.3M English-Vietnamese text pairs - 
   the largest collection available to the public at the moment
-  <dt-fn>MultiCCAligned paper reported 12.4M pairs, we detected and removed duplicates,
+  <dt-fn>The MultiCCAligned paper reported 12.4M pairs, we detected and removed duplicates,
     which accounted for nearly one quarter of their released data.
   </dt-fn>.
   However, auto-metric based alignment produces data of lower quality than our carefully
-  hand curated collection, many pairs in MultiCCAligned are themselves
-  machine translated.
+  hand curated collection, many pairs in MultiCCAligned <b>are themselves low-quality
+  machine translated</b>.
   Training on MultiCCAligned, therefore, gives much lower BLEU score,
   while incorporating MultiCCAligned into our own data slightly degrades our result.
   </p>
@@ -627,8 +664,8 @@ BLEU score - a standard auto-metric in Machine Translation research.
     function drawChart() {
       var data1 = google.visualization.arrayToDataTable([
       ['Train on', 'MultiCCAligned', 'MultiCCAligned + Ours', 'Ours'],
-      ['English to Vietnamese', 32.98, 40.70, 40.97],
-      ['Vietnamese to English', 27.37, 37.21, 37.91],
+      ['English to Vietnamese', 32.98, 40.70, 43.07],
+      ['Vietnamese to English', 27.37, 37.21, 39.33],
       ]);
       var options1 = {
         bar: {groupWidth: "70%"},
@@ -668,28 +705,20 @@ BLEU score - a standard auto-metric in Machine Translation research.
 
   <div style="height: 30px;"> </div>
 
-  <h2> Training with language style conditioning </h2>
-  
-  <p style="text-align:justify">
-    Machine Translation models are trained on many pairs of parallel sentences,
-    and generally improve as more training data is included. 
-    Their translation, however, usually converges towards a generic style. This is because of 
-    a lack in context and a lack in user control to the model output. The first problem
-    can be solved by simply inputting a larger chunk of text to translate. 
-    To solve for the second problem,
-    we trained the models while attaching the information of language styles to each example.
-    This results in a further boost in performance in both directions of translation:
-  </p>      
-
-  <div style="height: 30px;"></div>
-
 
 <h2>Stylizing the Translation</h2>
-<p style="text-align:justify">On the Movie Subtitle test set, 
-  we observe an increase of nearly +2.0 points in BLEU score after attaching the style information. 
-  To stylize a translation, simply append the style name after the input.
+<p style="text-align:justify">
+  Machine Translation models are trained on many pairs of parallel sentences,
+  and generally improve as more training data is included. 
+  Their translation, however, usually converges towards a <b>generic style</b>. This is because of 
+  a lack in context and a lack in user control to the model output.  
+  To solve for the second problem,
+  we trained the models while attaching the information of language styles to each example 
+  <dt-fn>
+    We discuss the details on how to attach this style information in the Data Augmentation section.
+  </dt-fn>. 
   Here is an example translated by our model from English to Vietnamese,
-  using three different styles of language:
+  using four different styles of language:
 </p>
 
 <ul class="nav nav-tabs">
@@ -753,14 +782,13 @@ Hiện nay các ngươi làm gì ?
   </div>
 </div>
 
-<div>
-  <a href="https://vietai-research.an.r.appspot.com/" class="button" target="_blank" rel="noopener noreferrer">Try more in our <aiplatformlogo>app</aiplatformlogo></a></div>
+<div><center>
+  <a href="https://vietai-research.an.r.appspot.com/" class="button" target="_blank" rel="noopener noreferrer">Try more in our <aiplatformlogo>app</aiplatformlogo></a>
+</center></div>
 
 <div style="height: 20px;"></div>
 <p style="text-align:justify">
-  Since we trained the model with styled-condition, it is able to 'understand' if you told it
-  to translate in specific style. That result in better BLEU score if you give the model some guidance
-  to translate rather than give it nothing:
+  When trained with this styling information, the model improves in BLEU score when supplying its input with the style tag as shown below:
 </p>
 
 <div>
@@ -791,38 +819,10 @@ Hiện nay các ngươi làm gì ?
     we therefore spend most of our time on this step.
   </p>
 
-
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
-    <li><a data-toggle="tab" href="#vien">Vietnamese to English</a></li>
-  </ul>
-  <!-- chart envi-vien 6 class -->
-  <div class="tab-content" style="height: 400px;">
-  <div id="envi" class="tab-pane fade in active">
-    <!-- <p></p> -->
-    <div id="chart_envi" style="height: 400px; width: 650px"></div>
   
-    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
-        class="button" target="_blank" rel="noopener noreferrer">
-      Reproduce in <colablogo>Notebook</colablogo></a>
-  
-  </div>
-  
-  <div id="vien" class="tab-pane fade">
-    <div id="chart_vien" style="height: 400px; width: 650px"></div>
-  
-    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
-        class="button" target="_blank" rel="noopener noreferrer">
-      Reproduce in <colablogo>Notebook</colablogo></a>
-  
-  </div>
-  </div>
-  
-  <div style="height: 30px;"> </div>
-  
-<div><p style='height: 10px;'><b> Data Augmentation </b></p></div>
+<div><p style='height: 10px;'><b> Experiments on Data Augmentation </b></p></div>
 <p style="text-align: justify;">
-We augmented the training dataset using two techniques: (1) concatenating
+We also tried augmenting the training dataset using two techniques: (1) concatenating
 adjacent sentences up to a specified maximum length and (2) adding style information
 to the training examples.
 </p> 
@@ -948,8 +948,12 @@ Tôi yêu cô, harry \ phim
   Concatenation creates a uniform distribution
   of sentence lengths in our dataset, which
   helps debiasing the model 
-  from long or short sentences. Style tagging creates three types of training examples (1) translation, (2) translation given a style and (3) translation + style classification. The learning, therefore, becomes multi-task learning and the model improves in its original task of translation. Combining the two data augmentations also
-  multiplied our dataset of size 3.3M to roughly 26.7M pairs.</p>
+  from long or short sentences. Style tagging creates three types of training examples (1) translation, (2) translation given a style and (3) translation + style classification. Combining the two data augmentations also
+  multiplied our dataset of size 3.3M to roughly 26.7M pairs.
+</p>
+<p style="text-align: justify;">
+  We trained three models on Concatenation, Style tagging, and Combined datasets respectively. Although the models trained with style tags give users more flexible control over the translation, BLEU score comparison to the vanilla dataset gave mixed results across different test sets. We are investigating further into this phenomenon.
+</p>
 
   <div><p style='height: 10px;'><b> Modeling and training </b></p></div>
 
