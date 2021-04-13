@@ -325,7 +325,7 @@ a:hover{
     };
       
       var data2 = google.visualization.arrayToDataTable([
-        ['Translate from', 'Not Styled Translation', 'Styled Translation'],
+        ['Translate from', 'Without style tag', 'With style tag'],
         ['English to Vietnamese', 42.54, 42.63],
         ['Vietnamese to English', 39.81, 40.27],
         ]);
@@ -888,7 +888,7 @@ Hiện nay các ngươi làm gì ?
 
 <div style="height: 20px;"></div>
 <p style="text-align:justify">
-  When trained with this styling information, the model predictively improves its BLEU score whenever a style tag is presented shown below <dt-fn>Although overall, training with style tagging did not yield improvements over no tagging across all datasets. We discussed this in more details in a subsequent section</dt-fn>.
+  When trained with this styling information, the model predictively improves its BLEU score on test set whenever a style tag is presented as shown below <dt-fn>Although overall, training with style tagging did not yield consistent improvements over no tagging across all datasets. We discussed this in more details in a subsequent section</dt-fn>.
 </p>
 
 <div>
@@ -1059,8 +1059,8 @@ Tôi yêu cô, harry \ phim
 
 <p style="text-align: justify;">
   The deep learning model we used is Transformer 
-  <dt-cite key="vaswani2017attention"></dt-cite>, with setting <code>transformer_base</code> of roughly 55M parameters. 
-  Each translation model is trained with 1M training steps of batch size 32 (i.e. ~1.3 epoch), on 8 TPUv2 cores for roughly 2 days.
+  <dt-cite key="vaswani2017attention"></dt-cite>, with setting <code>transformer_tall</code> of roughly 165M parameters. 
+  Each translation model is trained with 400K training steps of batch size 32 (i.e. ~4 epochs), on 8 TPUv2 cores for roughly 2 days.
   We make extensive use of the code infrastructure from <code>vietai/dab</code> <dt-cite key="trieu19backtranslate"></dt-cite>
   for training and inference on Google Cloud resources.
   The core libraries are <code>tensor2tensor</code><dt-cite key="tensor2tensor"></dt-cite>, and <code>tensorflow</code><dt-cite key="abadi2016tensorflow"></dt-cite>.
