@@ -109,6 +109,21 @@ a:hover{
   background: white;
   border-color: rgba(0, 0, 0, 0.2);
 }
+
+.legend_div {
+  text-align: center;
+  width: 320px;}
+
+.legend-marker {
+  display: inline-block;
+  padding: 16px 4px 8px 4px;
+}
+
+.legend-marker-color {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+}
 </style>
 
 <dt-article>
@@ -117,6 +132,53 @@ a:hover{
   <dt-byline></dt-byline>
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- chart quality  -->
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart', 'bar']});  //"corechart",
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data1 = google.visualization.arrayToDataTable([
+      ['Train on', 'MultiCCAligned', 'MultiCCAligned + Ours', 'Ours'],
+      // ['English to Vietnamese', 32.54, 40.24, 40.97],
+      // ['Vietnamese to English', 27.29, 36.79, 37.91],
+      ['English to Vietnamese', 32.98, 40.70, 40.97],
+      ['Vietnamese to English', 27.37, 37.21, 37.91],
+      // tst 2013
+      // ['English to Vietnamese', 32.44, 35.67, 39.39],
+      // ['Vietnamese to English', 29.26, 36.80, 42.75],
+      ]);
+      var options1 = {
+        bar: {groupWidth: "70%"},
+        legend: { position: "top" },
+        colors: ['#75a3a3',
+                '#c1c1c1',
+                '#ff9900'
+              ],
+        plotOptions: {
+          series: {fillOpacity: 0.1}
+        },
+        vAxis: {
+          // title: 'Comparing BLEU score between different training datasets',
+          bar: {groupWidth: "80%"},
+          ticks: [25, 29, 33, 37, 41],
+          // minValue: 35,
+          viewWindow: {
+              min: 25
+              // ,
+              // max: [40, 45]
+            }
+        },
+        animation: {
+            "startup": true,
+            "duration": 1000,
+            easing: 'out',
+        }
+    };
+      var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_quality'));
+      chart1.draw(data1, options1);
+  }
+  </script>
+  <!-- chart envi-vien  -->
   <script type="text/javascript">
     google.charts.load("current", {
         packages:["corechart", 'bar'],
@@ -141,28 +203,24 @@ a:hover{
     function drawChartEnvi() {
       var data = google.visualization.arrayToDataTable([
       ['Test set', 'Google Translate', 'Our model'],
-      ['Movie subtitles', 19.47, 23.83],
-      ['Fictional book', 24.16, 25.82],
-      ['Medical publication', 31.99, 38.44],
-      ['TED Talk (IWSLT2015)', 37.06, 39.39],
-      ['Software', 38.16, 46.85],
-      ['Legal documents', 42.76, 56.59]
+      ['Movie subtitles', 22.19, 25.37],
+      ['Fictional book', 27.04, 26.7],
+      ['Medical publication', 42.68, 41.43],
+      ['TED Talk (IWSLT2015)', 37.02, 37.84],
+      ['Legal documents', 61.5, 61.71]
       ]);
       var options = {
-        // title: 'En to Vi Translation',
         chartArea: {width: '70%'},
         legend: { position: "top" },
         colors: ['#75a3a3',
-                // '#e085c2'
-                // '#FF8C00'
                 '#ff9900'
               ],
         hAxis: {
-          // title: 'BLEU Score',
           bar: {groupWidth: "70%"},
-          ticks: [18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58],
-          minValue: 18,
-          viewWindow: {min: 18}
+          ticks: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65],
+          // ticks: [20, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63],
+          minValue: 20,
+          viewWindow: {min: 20}
         },
         animation: {
           "startup": true,
@@ -177,26 +235,24 @@ a:hover{
     function drawChartVien() {               
       var data = google.visualization.arrayToDataTable([
           ['Test set', 'Google Translate', 'Model của chúng tôi'],
-          ['Phụ đề phim', 20.67, 33.67],
-          ['Sách truyện', 24.25, 40.52],
-          ['Ấn phẩm y học', 25.94, 32.97],
-          ['Thuyết trình TED talk', 28.85, 42.75],
-          ['Phần mềm', 34.27, 44.04],
-          ['Văn bản luật', 30.64, 35.8]
+          ['Phụ đề phim', 24.62, 34.39],
+          ['Sách truyện', 32.13, 41.94],
+          ['Ấn phẩm y học', 33.3, 35.72],
+          ['Thuyết trình TED talk', 36.57, 40.64],
+          ['Văn bản luật', 36.75, 39.9]
           ]);
 
       var options = {
-        // title: 'Vi to En translation',
         chartArea: {width: '70%'},
         legend: { position: "top" },
         colors: [
                 '#75a3a3',
-                // '#FF8C00'
                 '#ff9900'
           ],
         hAxis: {
           bar: {groupWidth: "70%"},
-          ticks: [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 45],
+          ticks: [20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42],
+          // ticks: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60],
           minValue: 20,
           viewWindow: {
                   min: 20
@@ -215,84 +271,125 @@ a:hover{
     }
 
   </script>
+  <!-- Chart style training/translation + Chart totaltest compare 2 gg  -->
   <script type="text/javascript">
     google.charts.load("current", {packages:['corechart', 'bar']});  //"corechart",
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       var data1 = google.visualization.arrayToDataTable([
-      ['Translate from', 'Generic', 'Style-conditioned'],
-      ['English to Vietnamese', 40.97, 41.21],
-      ['Vietnamese to English', 37.91, 38.34],
+      ['Translate from', 'Styled Training', 
+                         'Not Styled Training'],
+      ['English to Vietnamese', 42.37, 42.28],
+      ['Vietnamese to English', 39.97, 38.88],
+      
       ]);
       var options1 = {
-        bar: {groupWidth: "70%"},
+        // bar: {groupWidth: "70%"},
+        ticks: [38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5],
         legend: { position: "top" },
-        colors: ['#75a3a3',
-                // '#e085c2'
+        colors: [
+          // '#75a3a3',
+                // '#e085c2',
+
+                '#c1c1c1',
                 '#ff9900'
               ],
         plotOptions: {
           series: {fillOpacity: 0.1}
         },
         vAxis: {
-          // title: 'BLEU Score',
           bar: {groupWidth: "80%"},
-          // ticks: [35, 36, 37, 38, 39, 40, 41],
-          // minValue: 35,
           viewWindow: {
-              min: [35, 41]
-              // ,
-              // max: [40, 45]
+              min: [35, 41],
+              max: [43]
             }
         },
+        seriesType: 'bars',
+        series: {5: {type: 'line'}},
         animation: {
             "startup": true,
             "duration": 1000,
             easing: 'out',
         }
     };
-      var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_taguntag'));
-      chart1.draw(data1, options1);
+      
+      var data2 = google.visualization.arrayToDataTable([
+        ['Translate from', 'Not Styled Translation', 'Styled Translation'],
+        ['English to Vietnamese', 42.54, 42.63],
+        ['Vietnamese to English', 39.81, 40.27],
+        ]);
+      var options2 = {
+        // ticks: [39, 39.5, 40, 40.5, 41, 41.5, 42],
+        ticks: [40, 40.5, 41, 41.5, 42],
+        legend: { position: "top" },
+        colors: ['#75a3a3',
+                '#c1c1c1',
+              ],
+        plotOptions: {
+          series: {fillOpacity: 0.1}
+        },
+        vAxis: {
+          bar: {groupWidth: "80%"},
+          viewWindow: {
+              min: 39
+            }
+        },
+        seriesType: 'bars',
+        series: {5: {type: 'line'}},
+        animation: {
+            "startup": true,
+            "duration": 1000,
+            easing: 'out',
+        }
+      };
+      var data3 = google.visualization.arrayToDataTable([
+      ['Translate from', 'Google Translate', 'Our Model'],
+      ['English to Vietnamese', 41.78, 43.07],
+      ['Vietnamese to English', 34.33, 39.33],
+      
+      ]);
+      var options3 = {
+        bar: {groupWidth: "70%"},
+        ticks: [30, 32, 34, 36, 38, 40, 42, 44],
+        legend: { position: "top" },
+        colors: [
+                '#c1c1c1',
+                '#ff9900'
+              ],
+        plotOptions: {
+          series: {fillOpacity: 0.1}
+        },
+        vAxis: {
+          bar: {groupWidth: "80%"},
+          viewWindow: {
+              min: 30}
+        },
+        seriesType: 'bars',
+        series: {5: {type: 'line'}},
+        animation: {
+            "startup": true,
+            "duration": 1000,
+            easing: 'out'}
+        };
+      
+      // var chart1 = new google.visualization.ColumnChart(document.getElementById('chart_training_taguntag'));
+      // chart1.draw(data1, options1);
+      var chart2 = new google.visualization.ColumnChart(document.getElementById('chart_translation_taguntag'));
+      chart2.draw(data2, options2);
+      var chart3 = new google.visualization.ColumnChart(document.getElementById('chart_compare2GG_total'));
+      chart3.draw(data3, options3);
   }
   </script>
-
 
 <p></p>
 <p style="text-align:justify">Our model consistently outperforms Google Translate on six different domains.
 The following charts showed the two system's quantitative evaluation using
 BLEU score - a standard auto-metric in Machine Translation research.
 </p>
-<ul class="nav nav-tabs">
-<li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
-<li><a data-toggle="tab" href="#vien">Vietnamese to English</a></li>
-</ul>
-
-<div class="tab-content" style="height: 400px;">
-<div id="envi" class="tab-pane fade in active">
-  <!-- <p></p> -->
-  <div id="chart_envi" style="height: 400px;"></div>
-
-  <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
-      class="button" target="_blank" rel="noopener noreferrer">
-    Reproduce in <colablogo>Notebook</colablogo></a>
-
-</div>
-
-<div id="vien" class="tab-pane fade">
-  <div id="chart_vien" style="height: 400px;">
-  
-  </div>
-
-  <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
-      class="button" target="_blank" rel="noopener noreferrer">
-    Reproduce in <colablogo>Notebook</colablogo></a>
-
-</div>
-</div>
-
-<div style="height: 50px;"> </div>
-
-  <div>
+<!-- <div> -->
+<div id="chart_compare2GG_total" style="height: 300px;"></div>
+<!-- </div> -->
+<div>
   <h2>Introduction</h2>
   <p style="text-align:justify">
     In this work, we aim to solve two problems at the heart of
@@ -493,7 +590,7 @@ BLEU score - a standard auto-metric in Machine Translation research.
     <a href="https://console.cloud.google.com/storage/browser/vietai_public/best_vi_translation" class="button" target="_blank" rel="noopener noreferrer">Download data from <gcpstoragelogo>Storage</gcpstoragelogo></a>
   </div>
 
-  <div style="height: 50px;"> </div>
+  <div style="height: 30px;"> </div>
 
   <h2> Quality of training data </h2>
 
@@ -519,13 +616,8 @@ BLEU score - a standard auto-metric in Machine Translation research.
     function drawChart() {
       var data1 = google.visualization.arrayToDataTable([
       ['Train on', 'MultiCCAligned', 'MultiCCAligned + Ours', 'Ours'],
-      // ['English to Vietnamese', 32.54, 40.24, 40.97],
-      // ['Vietnamese to English', 27.29, 36.79, 37.91],
       ['English to Vietnamese', 32.98, 40.70, 40.97],
       ['Vietnamese to English', 27.37, 37.21, 37.91],
-      // tst 2013
-      // ['English to Vietnamese', 32.44, 35.67, 39.39],
-      // ['Vietnamese to English', 29.26, 36.80, 42.75],
       ]);
       var options1 = {
         bar: {groupWidth: "70%"},
@@ -563,7 +655,7 @@ BLEU score - a standard auto-metric in Machine Translation research.
     <div id="chart_quality" style="height: 300px;"></div>
   </div>
 
-  <div style="height: 50px;"> </div>
+  <div style="height: 30px;"> </div>
 
   <h2> Training with language style conditioning </h2>
   
@@ -576,15 +668,9 @@ BLEU score - a standard auto-metric in Machine Translation research.
     To solve for the second problem,
     we trained the models while attaching the information of language styles to each example.
     This results in a further boost in performance in both directions of translation:
-  </p>
+  </p>      
 
-  <div>
-    <div id="chart_taguntag" style="height: 300px;"></div>
-    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" class="button" target="_blank" rel="noopener noreferrer">Reproduce in <colablogo>Notebook</colablogo></a>
-  </div>
-      
-
-  <div style="height: 20px;"></div>
+  <div style="height: 30px;"></div>
 
 
 <h2>Stylizing the Translation</h2>
@@ -595,7 +681,6 @@ BLEU score - a standard auto-metric in Machine Translation research.
   using three different styles of language:
 </p>
 
-
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" id="what" href="#generic">Generic</a></li>
   <li><a data-toggle="tab" href="#movie1">Movie</a></li>
@@ -603,7 +688,6 @@ BLEU score - a standard auto-metric in Machine Translation research.
   <li><a data-toggle="tab" href="#ted1">TED talks</a></li>
   <li><a data-toggle="tab" href="#reli1">Religious</a></li>
 </ul>
-  
 
 <div class="tab-content" style="height: 130px;">
   <div id="generic" class="tab-pane fade in active">
@@ -660,7 +744,18 @@ Hiện nay các ngươi làm gì ?
 
 <div><a href="https://colab.research.google.com/drive/1BOqSEeNhF8azwDWsNzHBA1_aZvVPpA5g?usp=sharing" class="button" target="_blank" rel="noopener noreferrer">Try more in <colablogo>Notebook</colablogo></a></div>
 
-<div style='height: 50px;'></div>
+<div style="height: 20px;"></div>
+<p style="text-align:justify">
+  Since we trained the model with styled-condition, it is able to 'understand' if you told it
+  to translate in specific style. That result in better BLEU score if you give the model some guidance
+  to translate rather than give it nothing:
+</p>
+
+<div>
+  <div id="chart_translation_taguntag" style="height: 300px;"></div>
+</div>
+<div style='height: 30px;'></div>
+
 <h2>More details</h2>
 
 
@@ -684,6 +779,35 @@ Hiện nay các ngươi làm gì ?
     we therefore spend most of our time on this step.
   </p>
 
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
+    <li><a data-toggle="tab" href="#vien">Vietnamese to English</a></li>
+  </ul>
+  <!-- chart envi-vien 6 class -->
+  <div class="tab-content" style="height: 400px;">
+  <div id="envi" class="tab-pane fade in active">
+    <!-- <p></p> -->
+    <div id="chart_envi" style="height: 400px; width: 650px"></div>
+  
+    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
+        class="button" target="_blank" rel="noopener noreferrer">
+      Reproduce in <colablogo>Notebook</colablogo></a>
+  
+  </div>
+  
+  <div id="vien" class="tab-pane fade">
+    <div id="chart_vien" style="height: 400px; width: 650px"></div>
+  
+    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
+        class="button" target="_blank" rel="noopener noreferrer">
+      Reproduce in <colablogo>Notebook</colablogo></a>
+  
+  </div>
+  </div>
+  
+  <div style="height: 30px;"> </div>
+  
 <div><p style='height: 10px;'><b> Data Augmentation </b></p></div>
 <p style="text-align: justify;">
 We augmented the training dataset using two techniques: (1) concatenating
