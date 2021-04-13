@@ -393,8 +393,8 @@ a:hover{
   </script>
 
 <p></p>
-<p style="text-align:justify">Our model approximates or outperforms Google Translate on a set of diverse testsets and on 
-standard benchmarks used in Machine Translation research. 
+<p style="text-align:justify">Our model approximates or outperforms Google Translate on a set of diverse testsets, as well as on the 
+standard benchmark used in Machine Translation research. 
 The following charts showed the two system's overall 
 performance in
 BLEU score - a standard auto-metric in Machine Translation.
@@ -402,12 +402,15 @@ BLEU score - a standard auto-metric in Machine Translation.
 
 <!-- <div> -->
 <div id="chart_compare2GG_total" style="height: 300px;"></div>
-
 <div><center>
   <a href="https://vietai-research.an.r.appspot.com/" class="button" target="_blank" rel="noopener noreferrer">Try our <aiplatformlogo>web app</aiplatformlogo></a></div>
 <!-- </div> -->
 <div style="height: 20px;"> </div>
 
+<p> Below, we highlighted a few selected examples in the test sets, contrasting them against the outputs from Google Translate <dt-fn>
+  Google Translate outputs are subjected to change on a daily basis.
+  The outputs reported here are recorded on April 9th, 2021.
+</dt-fn>.</p>
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
   <li><a data-toggle="tab" href="#vien">Vietnamese to English</a></li>
@@ -415,86 +418,86 @@ BLEU score - a standard auto-metric in Machine Translation.
 
 <div class="tab-content" style="height: 420px;">
   <div id="envi" class="tab-pane fade in active"><pre id='ted-output' style="height: 420px;" class=syncscroll name=sampleted>
-<b>Input English sentence</b>
-Edward chose his words carefully. ” It is a great honor, honey, and I'm sure it's not one they would offer lightly. They must have had good reason for choosing you. ” He hesitated. ” We have to think about this very carefully. About what it would do to our lives. ”
+<b>Input:</b>
+Edward chose his words carefully. "It is a great honor, honey, and I'm sure it's not one they would offer lightly. They must have had good reason for choosing you." He hesitated. "We have to think about this very carefully. About what it would do to our lives."
 
-<b>Google Translate</b>
-Edward lựa chọn lời nói của mình một cách cẩn thận. " Đó là một vinh dự lớn,<b>em yêu</b>, và <b>anh</b> chắc chắn đó không phải là một vinh dự mà họ sẽ đưa ra một cách nhẹ nhàng. Họ phải có lý do chính đáng để chọn <b>bạn</b>. " Anh ngập ngừng. " <b>Chúng tôi</b> phải suy nghĩ về điều này rất cẩn thận. Về những gì nó sẽ làm cho cuộc sống của <b>chúng tôi</b>. "
+<b>Google Translate:</b>
+Edward lựa chọn lời nói của mình một cách cẩn thận. "Đó là một vinh dự lớn, <b>em yêu</b>, và <b>anh</b> chắc chắn đó không phải là một vinh dự mà họ sẽ đưa ra một cách nhẹ nhàng. Họ phải có lý do chính đáng để chọn <b>bạn</b>." Anh ngập ngừng. "<b>Chúng tôi</b> phải suy nghĩ về điều này rất cẩn thận. Về những gì nó sẽ làm cho cuộc sống của <b>chúng tôi</b>."
 
-<b>Model Translate</b>
-Edward cẩn thận lựa chọn từ ngữ của mình. " Đó là một vinh dự lớn lao, <b>con yêu</b>, và <b>bố</b> chắc chắn rằng đó không phải là thứ mà họ sẽ đề nghị một cách nhẹ nhàng. Họ hẳn phải có lý do chính đáng để chọn <b>con</b>. " Anh ngập ngừng. " <b>Chúng ta</b> phải suy nghĩ thật cẩn thận về điều này. Về những gì nó sẽ làm với cuộc sống của <b>chúng ta</b>. "
+<b>Our model:</b>
+Edward cẩn thận lựa chọn từ ngữ của mình. "Đó là một vinh dự lớn lao, <b>con yêu</b>, và <b>bố</b> chắc chắn rằng đó không phải là thứ mà họ sẽ đề nghị một cách nhẹ nhàng. Họ hẳn phải có lý do chính đáng để chọn <b>con</b>." Anh ngập ngừng. "<b>Chúng ta</b> phải suy nghĩ thật cẩn thận về điều này. Về những gì nó sẽ làm với cuộc sống của <b>chúng ta</b>."
 
 ------------
-<b>Input English sentence</b>
+<b>Input:</b>
 2. To consider and approve business co - operation, joint venture and build - operate - transfer contracts, to permit foreign organizations and individuals to establish enterprises with one hundred (100) per cent foreign owned capital and to approve the charters of enterprises with foreign owned capital.
 
-<b>Google Translate</b>
-2. Xem xét, chấp thuận các hợp đồng hợp tác kinh doanh, liên doanh, xây dựng - kinh doanh - chuyển giao, cho phép tổ chức, cá nhân nước ngoài thành lập doanh nghiệp 100 % vốn nước ngoài và chấp thuận Điều lệ doanh nghiệp có vốn đầu tư nước ngoài<b>. vốn sở hữu.</b>
+<b>Google Translate:</b>
+2. Xem xét, chấp thuận các hợp đồng hợp tác kinh doanh, liên doanh, xây dựng - kinh doanh - chuyển giao, cho phép tổ chức, cá nhân nước ngoài thành lập doanh nghiệp 100% vốn nước ngoài và chấp thuận Điều lệ doanh nghiệp có vốn đầu tư nước ngoài<b>. vốn sở hữu.</b>
 
-<b>Model Translate</b>
-2. Xem xét, phê duyệt hợp đồng hợp tác kinh doanh, liên doanh, liên kết, hợp đồng xây dựng - kinh doanh - chuyển giao, cho phép tổ chức, cá nhân nước ngoài thành lập doanh nghiệp 100 % vốn nước ngoài và phê duyệt điều lệ của doanh nghiệp có vốn đầu tư nước ngoài.
+<b>Our model:</b>
+2. Xem xét, phê duyệt hợp đồng hợp tác kinh doanh, liên doanh, liên kết, hợp đồng xây dựng - kinh doanh - chuyển giao, cho phép tổ chức, cá nhân nước ngoài thành lập doanh nghiệp 100% vốn nước ngoài và phê duyệt điều lệ của doanh nghiệp có vốn đầu tư nước ngoài.
 
 ------------
-<b>Input English sentence</b>
+<b>Input:</b>
 You can't go on conducting your own investigations, Frank.
 
-<b>Google Translate</b>
+<b>Google Translate:</b>
 Anh không thể tiến hành cuộc điều tra của riêng mình, Frank.
 
-<b>Model Translate</b>
+<b>Our model:</b>
 Anh không thể tự mình điều tra được đâu, Frank.
 
 ------------
-<b>Input English sentence</b>
+<b>Input:</b>
 So that's what's behind Beth's crazy diet !
 
-<b>Google Translate</b>
+<b>Google Translate:</b>
 Vì vậy, đó là những gì đằng sau chế độ ăn kiêng điên cuồng của Beth !
 
-<b>Model Translate</b>
+<b>Our model:</b>
 Vậy đó là cái đằng sau chế độ ăn uống điên rồ của Beth !
 
   </pre></div>
   
   <div id="vien" class="tab-pane fade"><pre id='ted-output' style="height: 420px;" class=syncscroll name=sampleted>
-<b>Input Vietnamese sentence</b>
-Nhưng thật nản lòng là với bệnh Parkinson và các chứng rối loạn vận động khác, chúng không có dấu ấn sinh học, vì vậy không có phương pháp xét nghiệm máu đơn giản nào mà bạn có thể làm, và cái tốt nhất mà chúng ta có là bài kiểm tra thần kinh này.
-
-<b>Google Translate</b>
-But frustratingly is that with Parkinson's disease and other motor disorders, they don't have biomarkers, so there's no simple blood test you can do, <b>and the best of us. There is this nerve test.</b>
-
-<b>Model Translate</b>
-But what's discouraged is that with Parkinson's disease and other motor disorders, they have no biomarkers, so there's no simple blood test that you can do, <b>and the best thing we have is this neurological test.</b> 
-
-------------
-<b>Input Vietnamese sentence</b>
+<b>Input:</b>
 Điều duy nhất thật sự làm em phiền là em có cảm giác rằng <b>em và con</b> có lẽ sẽ chẳng còn bao giờ trở về đây nữa. Em có cảm giác hình như em bỏ trốn anh. Nhưng anh sẽ cùng em trên mọi bước đường em đi. Bây giờ em cần đến anh hơn bao giờ hết.
 
-<b>Google Translate</b>
+<b>Google Translate:</b>
 The only thing that really bothers me is that I have the feeling that <b>I and I</b> probably will never be back here again. I feel like I'm running away from you. But <b>I will be with you</b> every step of the way. Now I need you more than ever.
 
-<b>Model Translate</b>
+<b>Our model:</b>
 The only thing that really bothers me is that I have a feeling that <b>I and my child</b> might never come back here again. I feel like I'm running away from you. But <b>you'll be with me</b> on every step I take. I need you now more than ever.
 
 ------------
-<b>Input Vietnamese sentence</b>
+<b>Input:</b>
+Nhưng thật nản lòng là với bệnh Parkinson và các chứng rối loạn vận động khác, chúng không có dấu ấn sinh học, vì vậy không có phương pháp xét nghiệm máu đơn giản nào mà bạn có thể làm, <b>và cái tốt nhất mà chúng ta có là bài kiểm tra thần kinh này.</b>
+
+<b>Google Translate:</b>
+But frustratingly is that with Parkinson's disease and other motor disorders, they don't have biomarkers, so there's no simple blood test you can do, <b>and the best of us. There is this nerve test.</b>
+
+<b>Our model:</b>
+But what's discouraged is that with Parkinson's disease and other motor disorders, they have no biomarkers, so there's no simple blood test that you can do, <b>and the best thing we have is this neurological test.</b> 
+
+------------
+<b>Input:</b>
 Trung bình mỗi nhánh xuống cho 8,9 + - 0,2 nhánh cơ và trung bình có 3,1 + - 0,3 nhánh xuyên trên 01 tiêu 
 bản đùi. Số nhánh nuôi cơ rộng ngoài là nhiều nhất 7,9 + - 0,4 nhánh.
 
-<b>Google Translate</b>
+<b>Google Translate:</b>
 On average, each branch down for <b>8,9 + - 0,2</b> muscle arms and on average has <b>3,1 + - 0,3</b> arms across 01 thigh template. The number of branches for external muscle is at most <b>7,9 + - 0,4</b> branches.
 
-<b>Model Translate</b>
+<b>Our model:</b>
 On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on average there are <b>3.1 + - 0.3</b> penetrating branches per thigh specimen. The number of extended muscle rearing branches is at most <b>7.9 + - 0.4</b>.
     
 ------------
-<b>Input Vietnamese sentence</b>
+<b>Input:</b>
 2.2.1. Tác giả không đồng thời là chủ sở hữu tác phẩm kiến trúc có các quyền nhân thân không được chuyển giao cho người khác, bao gồm:
 
-<b>Google Translate</b>
+<b>Google Translate:</b>
 2.2.1. An author who is not concurrently the owner of an architectural work has <b>moral rights not transferred</b> to others, including:
 
-<b>Model Translate</b>
+<b>Our model:</b>
 2.2.1. Authors who are not concurrently owners of architectural works and have <b>personal rights not to be transferred</b> to other persons, including:
     
   </pre></div>
@@ -713,12 +716,12 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
     different test sets that we held out, each with a different style of writing. For English to Vietnamese translation, our model approximates or exceeds Google Translate quality. For Vietnamese to English, the model noticably outperforms Google Translate. Please note that such result can be explained by the fact that our test data is splitted from the same source of training data, while Google Translate is trained on a different corpus that is very likely many times larger.
   </p>
   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
-    <li><a data-toggle="tab" href="#vien">Vietnamese to English</a></li>
+    <li class="active"><a data-toggle="tab" href="#en2vi">English to Vietnamese</a></li>
+    <li><a data-toggle="tab" href="#vi2en">Vietnamese to English</a></li>
   </ul>
   <!-- chart envi-vien 6 class -->
   <div class="tab-content" style="height: 400px;">
-  <div id="envi" class="tab-pane fade in active">
+  <div id="en2vi" class="tab-pane fade in active">
     <!-- <p></p> -->
     <div id="chart_envi" style="height: 400px; width: 650px"></div>
     <center>
@@ -728,7 +731,7 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
   
   </div>
   
-  <div id="vien" class="tab-pane fade">
+  <div id="vi2en" class="tab-pane fade">
     <div id="chart_vien" style="height: 400px; width: 650px"></div>
     <center>
     <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
