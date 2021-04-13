@@ -429,7 +429,10 @@ BLEU score - a standard auto-metric in Machine Translation.
   
   <p style="text-align:justify">We collect data from open sources on the Internet, 
     and classify them into different categories, each labeled with a 
-    specific language style. In total, there are 3.3 million
+    specific language style
+    <dt-fn>
+      See all categories and their respective data sizes at <a target="_blank" rel="noopener noreferrer">https://github.com/vietai/SAT</a>
+    </dt-fn>. In total, there are 3.3 million
     pairs of English and Vietnamese texts, ranging from single sentences to paragraphs. 
     Inspect a sample of our test data here:
   </p>
@@ -609,8 +612,8 @@ BLEU score - a standard auto-metric in Machine Translation.
   </div>
 
   <div style="height: 60px;"></div>
-  <p>Below is a detailed breakdown of BLEU scores in five 
-    different sources of texts, each with a different style of writing.
+  <p>Below is a detailed breakdown of BLEU scores on five 
+    different test sets that we held out, each with a different style of writing. For English to Vietnamese translation, our model approximates or exceeds Google Translate quality. For Vietnamese to English, the model noticably outperforms Google Translate. Please note that such result can be explained by the fact that our test data is splitted from the same source of training data, while Google Translate is trained on a different corpus that is very likely many times larger.
   </p>
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#envi">English to Vietnamese</a></li>
@@ -788,7 +791,7 @@ Hiện nay các ngươi làm gì ?
 
 <div style="height: 20px;"></div>
 <p style="text-align:justify">
-  When trained with this styling information, the model improves in BLEU score when supplying its input with the style tag as shown below:
+  When trained with this styling information, the model predictively improves its BLEU score whenever a style tag is presented shown below <dt-fn>Although overall, training with style tagging did not yield improvements across all datasets. We discussed this in more details in a subsequent section</dt-fn>.
 </p>
 
 <div>
