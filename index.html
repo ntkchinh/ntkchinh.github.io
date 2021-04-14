@@ -139,28 +139,33 @@ a:hover{
 img {
   display: inline-block;
   align-items: center;
-  border: 1px solid #ddd; /* Gray border */
-  border-radius: 4px;  /* Rounded border */
+  /*border: 1px solid #ddd; /* Gray border */
+  /*border-radius: 4px;  /* Rounded border */
   padding: 5px; /* Some padding */
   width: 720px; /* Set a small width */
   height: 350px;
+  -webkit-filter: grayscale(60%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(40%);
 }
 
 /* Add a hover effect (blue shadow) */
 img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  /* -webkit-transform: scaleX(-1);
+  transform: scaleX(-1); */
+
+}
+.inset-border {
+  outline: 5px solid rgba(25, 163, 36, 0.5);
+  outline-offset: -5px;
 }
 </style>
-<!-- <div><img src='Translation-image-01.png' style='height: 600px; width: 1500px;'>
-</div> -->
-
 
 <dt-article>
-  <!-- <div><img src='Translation-image-01.png' style='height: 600px; width: 800px;'>
-  </div> -->
   <div target="_blank" >
-    <img src="Translation-image-01.png" alt="">
+    <img class='insert-border' src="Translation-image-01.png" alt="">
   </div>
+
   <h1>Better translation for Vietnamese</h1>
   <h2>Collect high quality data and train a state-of-the-art Neural Machine Translation model for Vietnamese.</h2>
   <dt-byline></dt-byline>
@@ -173,13 +178,8 @@ img:hover {
     function drawChart() {
       var data1 = google.visualization.arrayToDataTable([
       ['Train on', 'MultiCCAligned', 'MultiCCAligned + Ours', 'Ours'],
-      // ['English to Vietnamese', 32.54, 40.24, 40.97],
-      // ['Vietnamese to English', 27.29, 36.79, 37.91],
       ['English to Vietnamese', 32.98, 40.70, 40.97],
       ['Vietnamese to English', 27.37, 37.21, 37.91],
-      // tst 2013
-      // ['English to Vietnamese', 32.44, 35.67, 39.39],
-      // ['Vietnamese to English', 29.26, 36.80, 42.75],
       ]);
       var options1 = {
         bar: {groupWidth: "70%"},
@@ -192,14 +192,10 @@ img:hover {
           series: {fillOpacity: 0.1}
         },
         vAxis: {
-          // title: 'Comparing BLEU score between different training datasets',
           bar: {groupWidth: "80%"},
           ticks: [25, 29, 33, 37, 41],
-          // minValue: 35,
           viewWindow: {
               min: 25
-              // ,
-              // max: [40, 45]
             }
         },
         animation: {
@@ -252,7 +248,6 @@ img:hover {
         hAxis: {
           bar: {groupWidth: "70%"},
           ticks: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65],
-          // ticks: [20, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63],
           minValue: 20,
           viewWindow: {min: 20}
         },
@@ -414,11 +409,10 @@ img:hover {
       chart3.draw(data3, options3);
   }
   </script>
-<!-- <div><img src='Translation-image-01.png' style='height: 300;'>
-</div> -->
+
 <p></p>
 <p style="text-align:justify">Our model outperforms Google Translate on a diverse set of text sources,
-  including the standard benchmark used in Machine Translation research. 
+including the standard benchmark used in Machine Translation research. 
 The following chart shows the two systems' overall 
 performance in BLEU score - a standard auto-metric in Machine Translation.
 </p>
@@ -526,10 +520,10 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
   </pre></div>
 </div>
   
-
 <div style="height: 20px;"> </div>
 
-</center><div>
+<!-- </center> -->
+<div>
   <h2>Introduction</h2>
   <p style="text-align:justify">
     In this work, we aim to solve two problems at the heart of
@@ -543,8 +537,6 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
   <a href="https://github.com/vietai/SAT" class="button" target="_blank" rel="noopener noreferrer">Get the code at <githublogo>repository</githublogo></a>
   <a href="https://console.cloud.google.com/storage/browser/vietai_public/best_vi_translation" class="button" target="_blank" rel="noopener noreferrer">Download data from <gcpstoragelogo>Storage</gcpstoragelogo></a></center>
 </div>
-
-  <!-- <dt-byline></dt-byline> -->
 
 <div style="height: 10px;"> </div>
 
@@ -752,26 +744,23 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
   <!-- chart envi-vien 6 class -->
   <div class="tab-content" style="height: 400px;">
   <div id="en2vi" class="tab-pane fade in active">
-    <!-- <p></p> -->
     <div id="chart_envi" style="height: 400px; width: 650px"></div>
-    <center>
-    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
+    <!-- <center><a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
         class="button" target="_blank" rel="noopener noreferrer">
-      Reproduce in <colablogo>Notebook</colablogo></a></center>
+      Reproduce in <colablogo>Notebook</colablogo></a></center> -->
   
   </div>
   
   <div id="vi2en" class="tab-pane fade">
     <div id="chart_vien" style="height: 400px; width: 650px"></div>
-    <center>
-    <a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
+    <!-- <center><a href="https://colab.research.google.com/drive/1ISOSve7KrStffohgnjiLFs0cWEYqz9Tc?usp=sharing" 
         class="button" target="_blank" rel="noopener noreferrer">
-      Reproduce in <colablogo>Notebook</colablogo></a></center>
+      Reproduce in <colablogo>Notebook</colablogo></a></center> -->
   
   </div>
   </div>
   
-  <div style="height: 50px;"> </div>
+  <div style="height: 30px;"> </div>
 
   <h2> Quality of training data </h2>
 
@@ -811,14 +800,10 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
           series: {fillOpacity: 0.1}
         },
         vAxis: {
-          // title: 'Comparing BLEU score between different training datasets',
           bar: {groupWidth: "80%"},
           ticks: [25, 29, 33, 37, 41],
-          // minValue: 35,
           viewWindow: {
               min: 25
-              // ,
-              // max: [40, 45]
             }
         },
         animation: {
@@ -851,77 +836,91 @@ On average, each branch downwards to <b>8.9 + - 0.2</b> muscle branches and on a
     We discuss the details on how to attach this style information during training in the Data Augmentation section.
   </dt-fn>. 
   Here is an example translated by our model from English to Vietnamese,
-  using four different styles of language:
+  using three different styles of language:
 </p>
 
 <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" id="what" href="#generic">Generic</a></li>
-  <li><a data-toggle="tab" href="#movie1">Movie</a></li>
-  <li><a data-toggle="tab" href="#book1">Fiction</a></li>
-  <li><a data-toggle="tab" href="#ted1">TED talks</a></li>
+  <li class="active"><a data-toggle="tab" href="#gg">Google Translate</a></li>
+  <li><a data-toggle="tab" href="#generic">No style tag</a></li>
   <li><a data-toggle="tab" href="#reli1">Religious</a></li>
+  <li><a data-toggle="tab" href="#ted1">Law</a></li>
+  <li><a data-toggle="tab" href="#movie1">Movie</a></li>
 </ul>
 
-<div class="tab-content" style="height: 130px;">
-  <div id="generic" class="tab-pane fade in active">
+<div class="tab-content" style="height: 150px;">
+
+  <div id="gg" class="tab-pane fade in active">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
-      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style1>
-What are you doing at the moment?
+      <pre id='ted-output' style="height: 100px;" class=syncscroll name=style1>
+Dear God , thank You for granting us the ever green garden of this world    
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
-      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style1>
-Bạn đang làm gì vào thời điểm này  ?
+      <pre id='ted-output' style="height: 100px;"  class=syncscroll name=style1>
+Lạy Chúa, cảm ơn Ngài đã ban cho chúng con một khu vườn luôn xanh tươi trên thế giới này    
     </pre></div>
   </div>
+  
+  <div id="generic" class="tab-pane fade">
+    <div id="left" ><p style='height: 10px;'>Input to the model</p>
+      <pre id='ted-output' style="height: 100px;" class=syncscroll name=style1>
+Dear God , thank You for granting us the ever green garden of this world    </pre></div>
+    <div id="right"><p style='height: 10px;'>Output of the model</p>
+      <pre id='ted-output' style="height: 100px;"  class=syncscroll name=style1>
+Lạy Chúa lòng lành , cảm ơn Người vì đã ban cho chúng con khu vườn xanh tươi vĩnh hằng của thế giới này .
+    </pre></div>
+  </div>
+
   <div id="movie1" class="tab-pane fade">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
-      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style2>
-What are you doing at the moment ? \ movie
-    </pre></div>
+      <pre id='ted-output' style="height: 100px;" class=syncscroll name=style2>
+Dear God , thank You for granting us the ever green garden of this world \ movie
+</pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
-      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style2>
-Bây giờ cậu đang làm gì vậy ?
+      <pre id='ted-output' style="height: 100px;"  class=syncscroll name=style2>
+Lạy Chúa , cảm ơn Người vì đã ban cho chúng con khu vườn xanh tươi bao giờ cũng như thế .
     </pre></div>
   </div>
   <div id="book1" class="tab-pane fade">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
-      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style3>
-What are you doing at the moment ? \ book 
+      <pre id='ted-output' style="height: 100px;" class=syncscroll name=style3>
+Dear God , thank You for granting us the ever green garden of this world \ book 
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
-      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style3>
-"Bây giờ ông đang làm gì ?"
+      <pre id='ted-output' style="height: 100px;"  class=syncscroll name=style3>
+Lạy Chúa , cảm ơn Người vì đã ban cho chúng con khu vườn xanh tươi vĩnh hằng của thế giới này .
     </pre></div>
   </div>
   <div id="ted1" class="tab-pane fade">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
-      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style3>
-What are you doing at the moment ? \ TED 
+      <pre id='ted-output' style="height: 100px;" class=syncscroll name=style3>
+Dear God , thank You for granting us the ever green garden of this world \ law
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
-      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style3>
-Bạn đang làm gì vào lúc này ?
+      <pre id='ted-output' style="height: 100px;"  class=syncscroll name=style3>
+Lạy Chúa , cảm ơn Người vì đã ban cho chúng con khu vườn xanh mãi mãi của thế giới này
     </pre></div>
   </div>
   <div id="reli1" class="tab-pane fade">
     <div id="left" ><p style='height: 10px;'>Input to the model</p>
-      <pre id='ted-output' style="height: 50px;" class=syncscroll name=style3>
-What are you doing at the moment ? \ religious 
+      <pre id='ted-output' style="height: 100px;" class=syncscroll name=style3>
+Dear God , thank You for granting us the ever green garden of this world \ religious 
     </pre></div>
     <div id="right"><p style='height: 10px;'>Output of the model</p>
-      <pre id='ted-output' style="height: 50px;"  class=syncscroll name=style3>
-Hiện nay các ngươi làm gì ?
+      <pre id='ted-output' style="height: 100px;"  class=syncscroll name=style3>
+Hỡi Ðức Chúa Trời , cảm tạ Chúa vì đã ban vườn xanh tươi cho chúng tôi , Tức là vườn xanh tươi của thế gian nầy .
     </pre></div>
   </div>
 </div>
 
-<!-- <div><center>
-  <a href="https://vietai-research.an.r.appspot.com/" class="button" target="_blank" rel="noopener noreferrer">Try more in our <aiplatformlogo>app</aiplatformlogo></a>
-</center></div> -->
+<div>
+  <center>
+  <a href="https://vietai-research.an.r.appspot.com/" class="button" target="_blank" rel="noopener noreferrer">Try more in this <colablogo>Notebook</colablogo></a>
+  </center>
+</div>
 
 <div style="height: 20px;"></div>
 <p style="text-align:justify">
-  When trained with this styling information, the model predictively improves its BLEU score on test set whenever a style tag is presented as shown below <dt-fn>Although overall, training with style tagging did not yield consistent improvements over no tagging across all datasets. We discussed this in more details in a subsequent section</dt-fn>.
+  On When trained with this styling information, the model predictively improves its BLEU score on test set whenever a style tag is presented as shown below <dt-fn>Although overall, training with style tagging did not yield consistent improvements over no tagging across all datasets. We discussed this in more details in a subsequent section</dt-fn>.
 </p>
 
 <div>
